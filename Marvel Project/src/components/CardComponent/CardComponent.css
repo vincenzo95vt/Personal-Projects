@@ -1,16 +1,94 @@
-.card{
+.card {
     display: flex;
     flex-direction: column;
-    width: 20%;
+    justify-content: flex-start;
+    width: 100%; /* Ocupará el 100% de la columna del grid */
     box-shadow: 1px 1px 3px black;
-    padding:20px
-}
-
-.card img{
+    padding: 16px;
+    overflow: hidden;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    background-color: black;
+    border-radius: 8px;
+    gap: 20px;
+  }
+  
+  /* Imagen dentro de la tarjeta */
+  .card img {
     border-radius: 4px;
-}
-
-.card .charName{
+    width: 100%;
+    background-size: cover;
+    object-fit: cover; /* Ajusta la imagen manteniendo la proporción */
+  }
+  
+  /* Nombre del personaje */
+  .card .charName {
     align-self: center;
-    font-size: 20px;
-}
+    height: fit-content;
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .card .description{
+    font-size: 14px;
+  }
+  .card .charTitle{
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .card .containerInfoDate{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    p{
+      font-weight: 700
+    }
+    align-items: center;
+  }
+  .card .containerInfoCreators{
+    display: flex;
+    flex-direction: column;
+    p{
+      font-weight: 700;
+    }
+    
+  }
+  .noDataContainer{
+    display: flex;
+    background-color: gray;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 2px;
+  }
+  .card .containerInfoCreators .containerCreators{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .card .containerInfoCreators .containerCreators span {
+    background-color: gray;
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+    padding: 2.5px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  .card .containerComicsInfo .divComics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .card .containerComicsInfo .divComics .comicName{
+    background-color: gray;
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+    padding: 2.5px;
+    border-radius: 5px;
+    font-size: 12px;  }

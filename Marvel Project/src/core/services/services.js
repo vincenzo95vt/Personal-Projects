@@ -1,15 +1,15 @@
 const apiKey = "016e2dd0e5b8e8a24a5e254d1d25cbbf"
 const md5Hash = "ce06267b66b09f160f5ca8bff859481a"
 
-export const fetchMarvelData = async () => {
-    const url = `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${apiKey}&hash=${md5Hash}`
+export const fetchMarvelData = async (section) => {
+    const url = `http://gateway.marvel.com/v1/public/${section}?ts=1&apikey=${apiKey}&hash=${md5Hash}`
     const response = await fetch(url)
     const data = await response.json()
     return data
 }
 
 export const fetchMarvelCharByName = async (charName) => {
-    const url = `http://gateway.marvel.com/v1/public/characters?name=${charName}?ts=1&apikey=${apiKey}&hash=${md5Hash}`
+    const url = `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${charName}&ts=1&apikey=${apiKey}&hash=${md5Hash}`
     const response = await fetch(url)
     const data = await response.json()
     return data

@@ -3,7 +3,6 @@
     border-radius: 5px;
     margin: 10px;
     display: flex;
-    width: 100%;
     text-align: center; 
     top: 0;
     justify-content: space-between;
@@ -16,6 +15,9 @@
 .bg{
     display: flex;
     padding: 10px;
+    &:hover{
+        cursor: pointer;
+    }
 }
 .bg img{
     width: 80%;
@@ -33,11 +35,12 @@
 
 }
 
-.bg2{
+.optionsContainer{
+    padding: 10px;
     display: flex;
-}
-
-.bg2 img{
-    width: 100%;
-    max-width: 150px; 
+    gap: 10px;
+    a{
+        text-decoration: none;
+        color: white;
+    }
 }

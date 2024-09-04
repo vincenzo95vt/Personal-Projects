@@ -1,15 +1,73 @@
-import React from 'react'
-import "./CardComponent.css"
-const CardComponent = () => {
+import React from 'react';
+import "./CardComponent.css";
+import moment from 'moment';
+
+const CardComponent = ({ char, section }) => {
+  if (!char) {
+    return <div className='card'><span>No data available</span></div>;
+  }
+
+  const renderCharacter = () => (
+    <>
+      <img src={`${char.thumbnail?.path}.${char.thumbnail?.extension}`} alt="" />
+      <span className='charName'>{char.name || 'No name available'}</span>
+      <span className='description'>{char.description || 'No description available'}</span>
+      <div className='containerComicsInfo'>
+        <p>Comics where appears:</p>
+        <div className='divComics'>{
+          char?.comics?.items?.length > 0 ? (
+            char.comics.items.map((com, idx) => (
+              <span key={idx} className='comicName'>{com.name || 'No name available'}</span>
+            ))
+          ) : (
+            <div className='noDataContainer'><span>No comics available</span></div>
+          )
+        }
+        </div>
+      </div>
+    </>
+  );
+
+  const renderComic = () => (
+    <>
+      <img src={`${char.thumbnail?.path}.${char.thumbnail?.extension}`} alt="" />
+      <span className='charTitle'>{char.title || 'No title available'}</span>
+      <span>{char.description || 'No description available'}</span>
+      <div className='containerInfoDate'>
+        <p>On Sale Date:</p>
+        <span>
+          {char.dates?.length > 0 && char.dates[0]?.date
+            ? moment(char.dates[0].date).format('YYYY-MM-DD')
+            : 'No date available'}
+        </span>
+      </div>
+      <div className='containerInfoCreators'>
+        <p>Creators:</p>
+        <div className='containerCreators'>
+          {char.creators?.items?.length > 0 ? (
+            char.creators.items.map((cre, idx) => (
+              <span key={idx}>{cre.name}</span>
+            ))
+          ) : (
+            <div className='noDataContainer'><span>No creators available</span></div>
+          )}
+        </div>
+      </div>
+    </>
+  );
+
   return (
     <div className='card'>
-      <img src="https://hips.hearstapps.com/hmg-prod/images/hulk-thor-ragnarok-infinity-war-1536683805.jpg?crop=0.564xw:1.00xh;0.204xw,0&resize=1200:*" alt="" />
-      <span className='charName'>Hulk</span>
-      <span>Bruce Banner es un científico que, tras una exposición a una explosión de rayos gamma, se transforma en Hulk cuando experimenta emociones extremas, como ira o estrés. 
-        Hulk es un ser de inmensa fuerza física, tamaño y resistencia, cuyo poder aumenta con su nivel de enojo.
-        </span>
+      {section === 'characters' ? renderCharacter() :
+        section === 'comics' ? renderComic() :
+        <>
+          <img src={`${char.thumbnail?.path}.${char.thumbnail?.extension}`} alt="" />
+          <span className='charName'>{char.name || 'No name available'}</span>
+          <span>{char.description || 'No description available'}</span>
+        </>
+      }
     </div>
-  )
+  );
 }
 
-export default CardComponent
+export default CardComponent;
