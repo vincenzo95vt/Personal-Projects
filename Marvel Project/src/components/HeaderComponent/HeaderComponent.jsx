@@ -32,6 +32,7 @@ const HeaderComponent = () => {
 
   const mainPage = () => {
     dispatch(showMarvelCharacter(undefined))
+    navigate("/")
   }
 
   return (
@@ -44,10 +45,9 @@ const HeaderComponent = () => {
             <button onClick={() => searchCharacter() }> Search</button>
         </div>
         <nav className='optionsContainer'>
-              <Link to={"/"}>Characters</Link>
+              <Link to={"/characters"}>Characters</Link>
               <Link to={"/comics"}>Comics</Link>
               <Link to={"/series"}>Series</Link>
-              <Link to={"/stories"}>Stories</Link>
         </nav>
     </div>
   )

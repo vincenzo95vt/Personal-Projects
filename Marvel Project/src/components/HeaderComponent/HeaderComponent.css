@@ -7,6 +7,14 @@
     top: 0;
     justify-content: space-between;
     align-items: center;
+    background: linear-gradient(to bottom right, #100f0f, red) ;
+    background-size: 200% 100%; /* Asegura que el gradiente se desplace */
+    animation: moveAndColor 3s alternate-reverse infinite;
+    animation-play-state: running; /* Reproduce la animación por defecto */
+    transition: background-position 0.3s;
+    &:hover{
+        animation-play-state: paused;
+    }
 }
 .header > div {
     display: flex;
@@ -38,9 +46,27 @@
 .optionsContainer{
     padding: 10px;
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+    gap: 20px;
     a{
         text-decoration: none;
         color: white;
+        font-size: 1.5em;
     }
 }
+
+@keyframes moveAndColor {
+    0% {
+      background-position: 0% 0%;
+      background-color: #ff0000; /* Color inicial */
+    }
+    50% {
+      background-position: 100% 0%;
+      background-color: #00ff00; /* Color intermedio */
+    }
+    100% {
+      background-position: 0% 0%;
+      background-color: #0000ff; /* Color final */
+    }
+  }
+  

@@ -1,17 +1,23 @@
 import React from 'react';
 import "./CardComponent.css";
-import moment from 'moment';
 
 const CardComponent = ({ char, section }) => {
   if (!char) {
     return <div className='card'><span>No data available</span></div>;
   }
 
+  const imgNotAvailable = char.thumbnail.path === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
+
+  if(imgNotAvailable){
+    return null
+  }
+
   const renderCharacter = () => (
     <>
       <img src={`${char.thumbnail?.path}.${char.thumbnail?.extension}`} alt="" />
+      <div className="cardOverlay"></div> {/* Overlay con degradado oscuro */}
       <span className='charName'>{char.name || 'No name available'}</span>
-      <span className='description'>{char.description || 'No description available'}</span>
+      {/* <span className='description'>{char.description || 'No description available'}</span>
       <div className='containerComicsInfo'>
         <p>Comics where appears:</p>
         <div className='divComics'>{
@@ -24,15 +30,16 @@ const CardComponent = ({ char, section }) => {
           )
         }
         </div>
-      </div>
+      </div> */}
     </>
   );
 
   const renderComic = () => (
     <>
       <img src={`${char.thumbnail?.path}.${char.thumbnail?.extension}`} alt="" />
+      <div className="cardOverlay"></div> {/* Overlay con degradado oscuro */}
       <span className='charTitle'>{char.title || 'No title available'}</span>
-      <span>{char.description || 'No description available'}</span>
+      {/* <span>{char.description || 'No description available'}</span>
       <div className='containerInfoDate'>
         <p>On Sale Date:</p>
         <span>
@@ -52,14 +59,23 @@ const CardComponent = ({ char, section }) => {
             <div className='noDataContainer'><span>No creators available</span></div>
           )}
         </div>
-      </div>
+      </div> */}
     </>
   );
+
+  const renderSeries = () => (
+    <>
+      <img src={`${char.thumbnail?.path}.${char.thumbnail?.extension}`} alt="" />
+      <div className="cardOverlay"></div> {/* Overlay con degradado oscuro */}
+      <span className='charTitle'>{char.title || 'No title available'}</span>
+    </>
+  )
 
   return (
     <div className='card'>
       {section === 'characters' ? renderCharacter() :
         section === 'comics' ? renderComic() :
+        section === "series" ? renderSeries() :
         <>
           <img src={`${char.thumbnail?.path}.${char.thumbnail?.extension}`} alt="" />
           <span className='charName'>{char.name || 'No name available'}</span>

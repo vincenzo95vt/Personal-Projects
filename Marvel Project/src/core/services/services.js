@@ -3,6 +3,7 @@ const md5Hash = "ce06267b66b09f160f5ca8bff859481a"
 
 export const fetchMarvelData = async (section) => {
     const url = `http://gateway.marvel.com/v1/public/${section}?ts=1&apikey=${apiKey}&hash=${md5Hash}`
+    console.log(apiKey)
     const response = await fetch(url)
     const data = await response.json()
     return data
