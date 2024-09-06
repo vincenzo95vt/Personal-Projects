@@ -1,8 +1,9 @@
-import { SET_LOADING, SHOW_MARVEL_CHARACTER, SHOW_MARVEL_DATA } from "./MainComponentAction"
+import { SET_LOADING, SHOW_DETAILS, SHOW_MARVEL_CHARACTER, SHOW_MARVEL_DATA } from "./MainComponentAction"
 
 const initialValues = {
     data: [],
     character: undefined,
+    characterId: undefined,
     loading: false
 }
 
@@ -18,6 +19,12 @@ const mainComponentReducers = (state= initialValues, action) => {
             return {
                 ...state,
                 character: action.payload,
+                loading: false
+            }
+        case SHOW_DETAILS: 
+            return{
+                ...state,
+                characterId: action.payload,
                 loading: false
             }
         case SET_LOADING:

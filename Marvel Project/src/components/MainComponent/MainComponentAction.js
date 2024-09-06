@@ -1,5 +1,6 @@
 export const SHOW_MARVEL_DATA = "SHOW_MARVEL_DATA"
 export const SHOW_MARVEL_CHARACTER = "SHOW_MARVEL_CHARACTER"
+export const SHOW_DETAILS = "SHOW_DETAILS"
 export const SET_LOADING = "SET_LOADING"
 
 export const showData = (data) => {
@@ -15,7 +16,12 @@ export const showMarvelCharacter = (character) => {
         payload: character
     }
 }
-
+export const showDetails = (id) => {
+    return{
+        type: SHOW_DETAILS,
+        payload: id
+    }
+}
 export const setLoading = (loading) => {
     return {
         type: SET_LOADING,

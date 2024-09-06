@@ -1,8 +1,8 @@
-@font-face {
-  font-family: "Avengers";
-  src: url("/fonts/heroesassembleout.ttf")
-        
-      
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 :root {
@@ -27,6 +27,7 @@ body {
   min-height: 100vh;
   background: linear-gradient(to bottom right, #100f0f, red) ;
   background-size: cover;
-  font-family: "Avengers", sans-serif;
+  font-family: "Bebas Neue", sans-serif;
+  text-shadow: 2px 2px 10px black;
 }
 

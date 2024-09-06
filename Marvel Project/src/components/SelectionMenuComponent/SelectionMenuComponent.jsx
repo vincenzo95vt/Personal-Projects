@@ -1,11 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./SelectionMenuComponent.css";
+import { useDispatch } from 'react-redux';
+import { showSection } from './SectionAction';
 
 const SelectionMenuComponent = () => {
     const navigate = useNavigate();
-
+    const dispatch = useDispatch()
+    
     const handleSection = (section) => {
+        dispatch(showSection(section))
         navigate(`/${section}`);
     };
 

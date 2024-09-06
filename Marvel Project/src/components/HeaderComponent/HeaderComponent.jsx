@@ -5,10 +5,11 @@ import { useDispatch } from 'react-redux'
 import { setLoading, showMarvelCharacter } from '../MainComponent/MainComponentAction'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { showSection } from '../SelectionMenuComponent/SectionAction'
 const HeaderComponent = () => {
   const [character, setCharacter] = useState(undefined)
   const [info, setInfo] = useState(undefined)
-
+  const [gradientPos, setGradientPos] = useState({x: 50, y: 50})
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -35,6 +36,10 @@ const HeaderComponent = () => {
     navigate("/")
   }
 
+  const handleChangeSection = (section) =>{
+    dispatch(showSection(section))
+  }
+
   return (
     <div className='header'>
         <div className='bg' onClick={() => mainPage()}>
@@ -45,9 +50,9 @@ const HeaderComponent = () => {
             <button onClick={() => searchCharacter() }> Search</button>
         </div>
         <nav className='optionsContainer'>
-              <Link to={"/characters"}>Characters</Link>
-              <Link to={"/comics"}>Comics</Link>
-              <Link to={"/series"}>Series</Link>
+              <Link to={"/characters"} onClick={() => handleChangeSection("characters")}>Characters</Link>
+              <Link to={"/comics"} onClick={() => handleChangeSection("comics")}>Comics</Link>
+              <Link to={"/series"} onClick={() => handleChangeSection("series")}>Series</Link>
         </nav>
     </div>
   )

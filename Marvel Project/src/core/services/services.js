@@ -17,8 +17,13 @@ export const fetchMarvelCharByName = async (charName) => {
 }
 
 
-export const fetchMarvelCharacter = async (charId) => {
-    const url = `http://gateway.marvel.com/v1/public/characters/${charId}?ts=1&apikey=${apiKey}&hash=${md5Hash}`
-    const response = await fetch(url)
-    const data = await response.json()
+export const fetchMarvelCharacter = async (section, charId) => {
+    try {
+        const url = `http://gateway.marvel.com/v1/public/${section}/${charId}?ts=1&apikey=${apiKey}&hash=${md5Hash}`
+        const response = await fetch(url)
+        const data = await response.json()
+        return data.data.results
+    } catch (error) {
+        console.error(error.message)
+    }
 }
