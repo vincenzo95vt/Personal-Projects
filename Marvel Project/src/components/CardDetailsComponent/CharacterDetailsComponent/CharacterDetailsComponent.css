@@ -1,0 +1,47 @@
+
+.description-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+}
+.description {
+    font-size: 1.5vw; 
+    color: #fff; 
+    line-height: 1.5; 
+}
+/* .image-container{
+    align-items: flex-start;
+} */
+
+.comic-container, .serie-container, .story-container, .event-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /
+}
+
+.comic-container .comic, .serie-container .serie, .story-container .story, .event-container .event{
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 1.5vw;
+}
+
+.notFound{
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 4px;
+    color: red;
+}
+
+.info-and-showmore{
+    display: flex;
+}
+.show-more-btn{
+    font-size: 1.1vw;
+    align-self: flex-end;
+    transition: 0.1s linear;
+    &:hover{
+        cursor: pointer;
+        color: red;
+    }
+}

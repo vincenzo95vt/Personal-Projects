@@ -28,7 +28,12 @@
   
   .no-data {
     text-align: center;
-    font-size: 1.7vw;
+    font-size: 1.5vw;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 4px;
+    width: fit-content;
+    color: #f00;
   }
   
   .details-content {
@@ -60,6 +65,11 @@
   }
   
   .title {
+    font-size: 4vw;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .name{
     font-size: 4vw;
     font-weight: bold;
     margin-bottom: 10px;
@@ -102,6 +112,10 @@
             }
         }
     }
+  }
+  .artist-container{
+    display: flex;
+    flex-direction: column;
   }
   
   .character span {
