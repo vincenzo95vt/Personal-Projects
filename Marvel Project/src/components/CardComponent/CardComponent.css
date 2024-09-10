@@ -27,20 +27,19 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)); 
-    z-index: 5; /* Asegura que el overlay esté entre la imagen y el texto */
-    pointer-events: none; /* Para que el overlay no interfiera con la interacción del contenido */
+    z-index: 5; 
+    pointer-events: none; 
   }
-  /* Imagen dentro de la tarjeta */
   .card img {
     border-radius: 4px;
     width: 100%;
-    object-fit: cover; /* Ajusta la imagen manteniendo la proporción */
-    transition: transform 0.3s ease; /* Hace que la imagen también tenga un efecto suave */
+    height: 100vh;
+    object-fit: cover; 
+    transition: transform 0.3s ease; 
   }
   .card:hover img {
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen al pasar el mouse */
+    transform: scale(1.05); 
   }
-  /* Nombre del personaje */
   .card .charName {
     align-self: center;
     height: fit-content;

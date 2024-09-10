@@ -22,7 +22,6 @@ const ComicDetailsComponent = ({info}) => {
       <div className="info-container">
         <span className='title'>{info.title}</span>
 
-        {/* Characters Section */}
         <div className='characters'>
           <span className="section-header">Characters:</span>
           <div className='characters-list'>
@@ -98,9 +97,9 @@ const ComicDetailsComponent = ({info}) => {
                         <path d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,20a1,1,0,1,1,1-1A1,1,0,0,1,12,20Zm1.93-7.494A1.982,1.982,0,0,0,13,14.257V15a1,1,0,0,1-2,0v-.743a3.954,3.954,0,0,1,1.964-3.5,2,2,0,0,0,1-2.125,2.024,2.024,0,0,0-1.6-1.595A2,2,0,0,0,10,9,1,1,0,0,1,8,9a4,4,0,1,1,5.93,3.505Z"/>
                       </svg>
                       <div className="tooltip-content">
-                        {date.type === "onsaleDate" && "This name refers to the date when the comic goes on sale."}
-                        {date.type === "unlimitedDate" && "This refers to the date when the unlimited edition is available on platforms."}
-                        {date.type === "digitalPurchaseDate" && "This is the date the comic became available digitally."}
+                        {date.type === "onsaleDate" && "Date when the comic goes on sale."}
+                        {date.type === "unlimitedDate" && "Date when the unlimited edition is available on platforms."}
+                        {date.type === "digitalPurchaseDate" && "Date when the comic became available digitally."}
                       </div>
                     </div>
                     <span className="date-value">

@@ -5,16 +5,21 @@
     display: flex;
     text-align: center; 
     top: 0;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background: linear-gradient(to bottom right, #100f0f, red) ;
     background-size: 200% 100%; /* Asegura que el gradiente se desplace */
     animation: moveAndColor 3s alternate-reverse infinite;
     animation-play-state: running; /* Reproduce la animación por defecto */
-    transition: background-position 0.3s;
+    transition: background-position 0.3s,  justify-content 0.5s ease;
+    position: relative;
     &:hover{
         animation-play-state: paused;
     }
+}
+
+.header.space-between{
+    justify-content: space-between;
 }
 .header > div {
     display: flex;
@@ -32,6 +37,7 @@
     max-width: 150px;
     border-radius: 4px;
 }
+
 
 .search {
     background-color: transparent; 
@@ -67,6 +73,57 @@
     100% {
       background-position: 0% 0%;
       background-color: #0000ff; /* Color final */
+    }
+  }
+  
+  
+  .menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .optionsContainer {
+    display: flex;
+  }
+  
+  .optionsContainer.show {
+    display: block; 
+    z-index: 10;
+  }
+  
+  /* Para pantallas pequeñas */
+  @media (max-width: 431px) {
+    .optionsContainer {
+      display: none; 
+      flex-direction: column;
+      position: absolute;
+      top: 60px; 
+      left: 0;
+      background-color: #f8f8f8;
+      width: 100%;
+    }
+  
+    .menu-toggle {
+      display: block; 
+    }
+  
+    .optionsContainer.show {
+      display: flex; 
+    }
+    .header{
+        height: auto;
+        .bg{
+            img{
+                width: 50%;
+            }
+        }
+        .search{
+            max-width: 60%;
+            height: 0.25rem;
+        }
     }
   }
   

@@ -31,3 +31,9 @@ body {
   text-shadow: 2px 2px 10px black;
 }
 
+@media (max-width: 431px  ) {
+  body{
+    max-height: max-content;    
+  }
+}
+

@@ -9,14 +9,14 @@
     color: #fff; 
     line-height: 1.5; 
 }
-/* .image-container{
+.image-container{
     align-items: flex-start;
-} */
+}
 
 .comic-container, .serie-container, .story-container, .event-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /
+    gap: 10px; 
 }
 
 .comic-container .comic, .serie-container .serie, .story-container .story, .event-container .event{

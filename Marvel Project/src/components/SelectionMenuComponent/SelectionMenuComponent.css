@@ -74,3 +74,13 @@
     font-size: 2em; 
     z-index: 10;
 }
+
+@media (max-width: 431px){
+    .mainContainer{
+        .containerSections{
+            display: flex;
+            flex-direction: column;
+        }
+
+    }
+}

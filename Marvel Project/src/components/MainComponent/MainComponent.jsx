@@ -35,7 +35,7 @@ const MainComponent = ({section}) => {
   },[section])
   
   useEffect(() => {
-    console.log(marvelCharacterFromReducer)
+    console.log("MAIN PAGE",marvelCharacterFromReducer)
     setCharInfo(marvelCharacterFromReducer)
   }, [marvelCharacterFromReducer])
   
@@ -70,7 +70,7 @@ const MainComponent = ({section}) => {
           : 
           (
             charInfo.map((char, idx) => (
-              <CardComponent key={idx} char={char} />
+              <CardComponent key={idx} char={char} section={"characters"} />
             ))
           )
         )

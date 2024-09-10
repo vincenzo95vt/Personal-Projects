@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./SelectionMenuComponent.css";
 import { useDispatch } from 'react-redux';
@@ -12,6 +12,10 @@ const SelectionMenuComponent = () => {
         dispatch(showSection(section))
         navigate(`/${section}`);
     };
+
+    useEffect(()=> {
+        dispatch(showSection('selectionMenu'))
+    },[] )
 
     return (
         <div className='mainContainer'>
