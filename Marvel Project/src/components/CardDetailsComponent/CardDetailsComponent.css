@@ -1,6 +1,6 @@
 .cardDetails {
     padding: 20px;
-
+    padding-top: 4%;
   }
   
   .spinner-container {
@@ -226,6 +226,7 @@
 
   @media (max-width: 431px){
     .cardDetails{
+      padding-top: 9%;
       .details-content{
         flex-direction: column;
         .image-container{
@@ -264,7 +265,7 @@
           border-radius: 4px;
         }
         .creators{
-          font-size: 1.15rem;
+          font-size: 1.05rem;
           .writer{
               display: flex;
               flex-direction: column;
@@ -276,7 +277,7 @@
                       background-color: rgba(255, 255, 255, 0.1);
                       padding: 5px;
                       border-radius: 4px;
-                      font-size: 1.5rem;
+                      font-size: 1.05rem;
                   }
               }
           }
@@ -296,7 +297,7 @@
           justify-content: space-between;
         }
         .no-data{
-          font-size: 1.5rem;
+          font-size: 1.05rem;
         }
         .date {
           display: flex;
@@ -324,6 +325,9 @@
           .section-header{
               font-size: 1.5;
           }
+        }
+        .show-more-btn{
+          font-size: 1rem;
         }
         .price .container-price{
           display: flex;

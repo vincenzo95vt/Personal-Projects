@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 
 const ComicDetailsComponent = ({info}) => {
-  // Estados para controlar "ver más" en cada sección
   const [showMoreCharacters, setShowMoreCharacters] = useState(false);
   const [showMoreWriters, setShowMoreWriters] = useState(false);
   const [showMoreArtists, setShowMoreArtists] = useState(false);
 
-  // Limitar a 3 ítems inicialmente
   const limit = 7;
 
-  // Mostrar más o menos personajes, escritores, artistas
   const charactersToShow = showMoreCharacters ? info.characters.items : info.characters.items.slice(0, limit);
   const writersToShow = showMoreWriters ? info.creators.items.filter(cre => cre.role === 'writer' || cre.role === "editor") : info.creators.items.filter(cre => cre.role === 'writer' || cre.role === "editor").slice(0, limit);
   const artistsToShow = showMoreArtists ? info.creators.items.filter(cre => cre.role === 'penciller') : info.creators.items.filter(cre => cre.role === 'penciller').slice(0, limit);
@@ -26,7 +23,7 @@ const ComicDetailsComponent = ({info}) => {
           <span className="section-header">Characters:</span>
           <div className='characters-list'>
             {charactersToShow.length === 0 ? (
-              <div className='character'>
+              <div className='no-data'>
                 <span>No data found</span>
               </div>
             ) : (

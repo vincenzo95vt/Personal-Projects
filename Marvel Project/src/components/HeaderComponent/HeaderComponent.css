@@ -1,23 +1,28 @@
 .header{
     box-shadow: 1px 1px 3px black;
+    margin-top: 5px;
+    position: fixed;
     border-radius: 5px;
-    margin: 10px;
     display: flex;
     text-align: center; 
     top: 0;
-    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 97vw;
     align-items: center;
     background: linear-gradient(to bottom right, #100f0f, red) ;
     background-size: 200% 100%; /* Asegura que el gradiente se desplace */
     animation: moveAndColor 3s alternate-reverse infinite;
     animation-play-state: running; /* Reproduce la animación por defecto */
     transition: background-position 0.3s,  justify-content 0.5s ease;
-    position: relative;
+    z-index: 100;
     &:hover{
         animation-play-state: paused;
     }
 }
-
+.header.center{
+  display: none;
+}
 .header.space-between{
     justify-content: space-between;
 }
@@ -27,7 +32,6 @@
 }
 .bg{
     display: flex;
-    padding: 10px;
     &:hover{
         cursor: pointer;
     }
@@ -38,7 +42,10 @@
     border-radius: 4px;
 }
 
-
+.search-container{
+  display: flex;
+  gap: 20px;
+}
 .search {
     background-color: transparent; 
     color: white; 
@@ -46,7 +53,6 @@
     padding: 8px; 
     border-radius: 4px; 
     outline: none; 
-
 }
 
 .optionsContainer{
@@ -60,19 +66,35 @@
         font-size: 1.5em;
     }
 }
+.bubble-error{
+  background-color: white;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  padding: 5px;
+  color: black;
+  border-radius: 3px;
+  top: 80%;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.bubble-error.show{
+  opacity: 1;
+}
 
 @keyframes moveAndColor {
     0% {
       background-position: 0% 0%;
-      background-color: #ff0000; /* Color inicial */
+      background-color: #ff0000;
     }
     50% {
       background-position: 100% 0%;
-      background-color: #00ff00; /* Color intermedio */
+      background-color: #00ff00; 
     }
     100% {
       background-position: 0% 0%;
-      background-color: #0000ff; /* Color final */
+      background-color: #0000ff;
     }
   }
   
@@ -85,9 +107,6 @@
     cursor: pointer;
   }
   
-  .optionsContainer {
-    display: flex;
-  }
   
   .optionsContainer.show {
     display: block; 
@@ -97,33 +116,54 @@
   /* Para pantallas pequeñas */
   @media (max-width: 431px) {
     .optionsContainer {
-      display: none; 
+      display: flex; 
       flex-direction: column;
       position: absolute;
-      top: 60px; 
-      left: 0;
-      background-color: #f8f8f8;
-      width: 100%;
+      right: 60%;
+      top: 23px;
+      background-color: #7a0101;
+      width: 90%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
+      transition:0.1s ease-in;
+      opacity: 0;
+      border-radius: 6px;
+      box-shadow: 2px 2px 3px black;
     }
-  
     .menu-toggle {
       display: block; 
     }
   
     .optionsContainer.show {
       display: flex; 
+      z-index: 80;
+      top: 23px;
+      opacity: 1;
+      z-index: 1;
     }
     .header{
         height: auto;
+        position: fixed;
+        z-index: 100;
+        align-self: center;
+        button{
+          font-size: 1rem;
+        }
         .bg{
             img{
-                width: 50%;
+                width: 60%;
             }
         }
         .search{
-            max-width: 60%;
+            max-width: 40%;
             height: 0.25rem;
         }
+    }
+    .bubble-error.show{
+      top: 95%;
+      font-size: 0.75rem;
+      height: fit-content;
     }
   }
   

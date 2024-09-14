@@ -63,8 +63,10 @@ const MainComponent = ({section}) => {
         (
           charInfo.length === 0 ? 
           (
-            <div>
-              <span>No data results</span>
+            <div className='no-data-container'>
+              <span>Sorry, we didn´t find any results with the name requested,
+                <br /> try again with another</span>
+              <img src="/pngegg.png" alt="" />
             </div>
           ) 
           : 

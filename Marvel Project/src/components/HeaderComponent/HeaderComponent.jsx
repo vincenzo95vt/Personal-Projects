@@ -9,7 +9,9 @@ import { showSection } from '../SelectionMenuComponent/SectionAction';
 
 const HeaderComponent = () => {
   const [character, setCharacter] = useState(undefined);
-  const [menuOpen, setMenuOpen] = useState(false); // Nuevo estado para manejar el menú
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [error, setError] = useState(undefined)
+
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,19 +22,27 @@ const HeaderComponent = () => {
   };
 
   const searchCharacter = async () => {
-    dispatch(setLoading(true));
-    try {
-      const response = await fetchMarvelCharByName(character);
-      if (response.ok) {
-        dispatch(showMarvelCharacter(response.data.results));
-        navigate("/characters");
-      } else {
-        throw new Error('Error fetching character data');
+ 
+    if(character === "" || character === undefined){
+      setError("Please provide a name to search")
+    }else{
+      setError(undefined)
+      dispatch(setLoading(true));
+      try {
+        const response = await fetchMarvelCharByName(character);
+        console.log(response)
+        if (response.code === 200) {
+          dispatch(showMarvelCharacter(response.data.results));
+          navigate("/characters");
+        } else {
+          throw new Error('Error fetching character data');
+        }
+      } catch (error) {
+        console.error('Failed to fetch character:', error);
+      } finally {
+        setCharacter(undefined)
+        dispatch(setLoading(false));
       }
-    } catch (error) {
-      console.error('Failed to fetch character:', error);
-    } finally {
-      dispatch(setLoading(false));
     }
   };
 
@@ -47,8 +57,18 @@ const HeaderComponent = () => {
   };
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen); // Cambia el estado del menú
+    setMenuOpen(!menuOpen); 
   };
+
+  useEffect(() => {
+    if(error){
+      const timer = setTimeout(()=> {
+        setError(undefined)
+        setShowError(false)
+      }, 3000)
+      return () => clearTimeout(timer);
+    }
+  }, [error])
 
   return (
     <div className={`header ${sectionFromReducer === "selectionMenu" ? 'center' : 'space-between'}`}>
@@ -65,8 +85,11 @@ const HeaderComponent = () => {
             <div className='bg' onClick={() => mainPage()}>
               <img src="marvel.svg" alt="Marvel logo" />
             </div>
-            <div>
+            <div className='search-container'>
               <input type="text" placeholder='Search Here' className='search' onChange={(e) => handlerSearchCharacter(e)} />
+              {error ? (<span className={`bubble-error show`}>{error}</span>)
+              :
+              (<span className={`bubble-error`}>{error}</span>)}
               <button onClick={() => searchCharacter()}> Search</button>
             </div>
 
