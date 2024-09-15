@@ -11,9 +11,9 @@
     width: 97vw;
     align-items: center;
     background: linear-gradient(to bottom right, #100f0f, red) ;
-    background-size: 200% 100%; /* Asegura que el gradiente se desplace */
+    background-size: 200% 100%;
     animation: moveAndColor 3s alternate-reverse infinite;
-    animation-play-state: running; /* Reproduce la animación por defecto */
+    animation-play-state: running;
     transition: background-position 0.3s,  justify-content 0.5s ease;
     z-index: 100;
     &:hover{
