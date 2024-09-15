@@ -1,7 +1,7 @@
 {
   "homepage": "http://vincenzo95vt.github.io/marvel-project",
   "name": "marvel-project",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
