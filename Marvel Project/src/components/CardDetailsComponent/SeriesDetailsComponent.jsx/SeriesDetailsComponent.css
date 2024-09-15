@@ -1,0 +1,21 @@
+.creator-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+}
+.creator-list .creators{
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 1.5vw;
+}
+
+.image-container{
+    height: 100%;
+}
+
+.image-container img{
+    height: 100vh;
+    object-fit: cover;
+}
+

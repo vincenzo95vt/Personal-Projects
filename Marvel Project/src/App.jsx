@@ -13,7 +13,7 @@ function App() {
         <div className='app'>
           <HeaderComponent/>
             <Routes>
-              <Route path="/" element={<SelectionMenuComponent />} />
+              <Route path="/" element={<SelectionMenuComponent section="selectionMenu"/>} />
               <Route path="/characters" element={<MainComponent section="characters" />}/>
               <Route path="/characters/:id" element={<CardDetailsComponent section="characters" />}/>
               <Route path="/comics" element={<MainComponent section="comics" />} />

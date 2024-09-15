@@ -35,7 +35,7 @@ const MainComponent = ({section}) => {
   },[section])
   
   useEffect(() => {
-    console.log(marvelCharacterFromReducer)
+    console.log("MAIN PAGE",marvelCharacterFromReducer)
     setCharInfo(marvelCharacterFromReducer)
   }, [marvelCharacterFromReducer])
   
@@ -63,14 +63,16 @@ const MainComponent = ({section}) => {
         (
           charInfo.length === 0 ? 
           (
-            <div>
-              <span>No data results</span>
+            <div className='no-data-container'>
+              <span>Sorry, we didn´t find any results with the name requested,
+                <br /> try again with another</span>
+              <img src="/pngegg.png" alt="" />
             </div>
           ) 
           : 
           (
             charInfo.map((char, idx) => (
-              <CardComponent key={idx} char={char} />
+              <CardComponent key={idx} char={char} section={"characters"} />
             ))
           )
         )
