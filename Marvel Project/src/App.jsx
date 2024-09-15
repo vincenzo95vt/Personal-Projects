@@ -9,7 +9,7 @@ import CardDetailsComponent from './components/CardDetailsComponent/CardDetailsC
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename='/Personal-projects'>
         <div className='app'>
           <HeaderComponent/>
             <Routes>
